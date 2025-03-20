@@ -1,7 +1,12 @@
 'use client';
 
 import { useFormContext, Controller } from 'react-hook-form';
-import { Select, SelectTrigger, SelectContent, SelectItem } from '@/components/ui/select';
+import {
+  Select,
+  SelectTrigger,
+  SelectContent,
+  SelectItem,
+} from '@/components/ui/select';
 
 interface CustomSelectProps {
   name: string;
@@ -22,8 +27,10 @@ export function CustomSelect({ name, label, options }: CustomSelectProps) {
         control={control}
         render={({ field }) => (
           <Select {...field}>
-            <SelectTrigger id={name} className="w-full p-2 border rounded">
-              {field.value ? options.find(option => option.value === field.value)?.label : 'Select an option'}
+            <SelectTrigger id={name} className="w-full rounded border p-2">
+              {field.value
+                ? options.find((option) => option.value === field.value)?.label
+                : 'Select an option'}
             </SelectTrigger>
             <SelectContent>
               {options.map((option) => (

@@ -21,11 +21,17 @@ export default function LoginPage() {
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)} className="max-w-md mx-auto space-y-4 p-4 border rounded">
+      <form
+        onSubmit={methods.handleSubmit(onSubmit)}
+        className="mx-auto max-w-md space-y-4 rounded border p-4"
+      >
         <h1 className="text-xl font-bold">Login</h1>
         <CustomInput name="email" label="Email" type="email" />
         <CustomInput name="password" label="Password" type="password" />
-        <button type="submit" className="w-full p-2 text-white bg-blue-500 rounded hover:bg-blue-600">
+        <button
+          type="submit"
+          className="w-full rounded bg-blue-500 p-2 text-white hover:bg-blue-600"
+        >
           Login
         </button>
       </form>

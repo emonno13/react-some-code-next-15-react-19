@@ -1,7 +1,7 @@
 'use client';
 
 import { useFormContext, Controller, FieldErrors } from 'react-hook-form';
-import { Input } from "@/components/ui/input";
+import { Input } from '@/components/ui/input';
 
 interface CustomInputProps {
   name: string;
@@ -10,10 +10,15 @@ interface CustomInputProps {
 }
 
 export function CustomInput({ name, label, type = 'text' }: CustomInputProps) {
-  const { control, formState: { errors } } = useFormContext();
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext();
 
   // Define the type for errors
-  const errorMessage = (errors[name as keyof FieldErrors] as { message?: string })?.message;
+  const errorMessage = (
+    errors[name as keyof FieldErrors] as { message?: string }
+  )?.message;
 
   return (
     <div className="space-y-2">
@@ -25,9 +30,14 @@ export function CustomInput({ name, label, type = 'text' }: CustomInputProps) {
         control={control}
         render={({ field }) => (
           <>
-            <Input {...field} type={type} id={name} className="w-full p-2 border rounded" />
+            <Input
+              {...field}
+              type={type}
+              id={name}
+              className="w-full rounded border p-2"
+            />
             {errorMessage && (
-              <p className="text-red-500 text-sm">{errorMessage}</p>
+              <p className="text-sm text-red-500">{errorMessage}</p>
             )}
           </>
         )}

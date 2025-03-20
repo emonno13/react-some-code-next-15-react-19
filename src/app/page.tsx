@@ -2,25 +2,25 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white dark:bg-black">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">
+      <section className="relative flex h-screen items-center justify-center px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl text-center">
+          <h1 className="mb-6 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl dark:text-white">
             Build Something <span className="text-blue-600">Amazing</span>
           </h1>
-          <p className="mt-4 text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
+          <p className="mx-auto mt-4 mb-8 max-w-2xl text-xl text-gray-600 dark:text-gray-300">
             Create stunning web applications with modern tools and frameworks.
             Start your journey today.
           </p>
-          <div className="flex gap-4 justify-center">
+          <div className="flex justify-center gap-4">
             <a
               href="#features"
-              className="rounded-full bg-blue-600 px-6 py-3 text-white hover:bg-blue-700 transition-colors"
+              className="rounded-full bg-blue-600 px-6 py-3 text-white transition-colors hover:bg-blue-700"
             >
               Get Started
             </a>
             <a
               href="#learn-more"
-              className="rounded-full border border-gray-300 dark:border-gray-700 px-6 py-3 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors"
+              className="rounded-full border border-gray-300 px-6 py-3 text-gray-900 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:text-white dark:hover:bg-gray-900"
             >
               Learn More
             </a>
@@ -29,29 +29,31 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 bg-gray-50 dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+      <section id="features" className="bg-gray-50 py-20 dark:bg-gray-900">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-16 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white">
               Powerful Features
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
               Everything you need to build modern web applications
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+                className="rounded-xl bg-white p-6 shadow-sm transition-shadow hover:shadow-md dark:bg-gray-800"
               >
-                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mb-4">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
+                <p className="text-gray-600 dark:text-gray-300">
+                  {feature.description}
+                </p>
               </div>
             ))}
           </div>
@@ -60,13 +62,13 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+          <h2 className="mb-8 text-3xl font-bold text-gray-900 dark:text-white">
             Ready to Get Started?
           </h2>
           <a
             href="#contact"
-            className="inline-block rounded-full bg-blue-600 px-8 py-4 text-lg text-white hover:bg-blue-700 transition-colors"
+            className="inline-block rounded-full bg-blue-600 px-8 py-4 text-lg text-white transition-colors hover:bg-blue-700"
           >
             Start Building Now
           </a>
@@ -79,10 +81,11 @@ export default function Home() {
 const features = [
   {
     title: 'Modern Stack',
-    description: 'Built with Next.js, React, and TailwindCSS for a modern development experience.',
+    description:
+      'Built with Next.js, React, and TailwindCSS for a modern development experience.',
     icon: (
       <svg
-        className="w-6 h-6 text-blue-600"
+        className="h-6 w-6 text-blue-600"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -98,10 +101,11 @@ const features = [
   },
   {
     title: 'Responsive Design',
-    description: 'Fully responsive layouts that look great on any device or screen size.',
+    description:
+      'Fully responsive layouts that look great on any device or screen size.',
     icon: (
       <svg
-        className="w-6 h-6 text-blue-600"
+        className="h-6 w-6 text-blue-600"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -117,10 +121,11 @@ const features = [
   },
   {
     title: 'Performance First',
-    description: 'Optimized for speed and efficiency with modern web performance best practices.',
+    description:
+      'Optimized for speed and efficiency with modern web performance best practices.',
     icon: (
       <svg
-        className="w-6 h-6 text-blue-600"
+        className="h-6 w-6 text-blue-600"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
