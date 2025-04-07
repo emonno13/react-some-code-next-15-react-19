@@ -8,7 +8,6 @@ export async function GET(request: Request) {
     const cookieStore = await cookies();
     const accessToken = cookieStore.get('accessToken');
 
-    console.log('accessToken', accessToken);
     // Check if token exists
     if (!accessToken || !accessToken.value) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

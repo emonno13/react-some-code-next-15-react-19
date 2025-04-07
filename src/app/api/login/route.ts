@@ -5,7 +5,6 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     const { email, password } = body;
-
     // Validate credentials
     if (email !== 'emonno13@gmail.com' || password !== '12345678') {
       return NextResponse.json(

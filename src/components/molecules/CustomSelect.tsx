@@ -1,12 +1,12 @@
 'use client';
 
-import { useFormContext, Controller } from 'react-hook-form';
 import {
   Select,
-  SelectTrigger,
   SelectContent,
   SelectItem,
+  SelectTrigger,
 } from '@/components/ui/select';
+import { Controller, useFormContext } from 'react-hook-form';
 
 interface CustomSelectProps {
   name: string;

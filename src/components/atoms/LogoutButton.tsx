@@ -1,21 +1,11 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { http } from '@/services/http';
 
 export function LogoutButton() {
   const handleLogout = async () => {
     try {
-      const response = await fetch('/api/logout', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-      });
-
-      if (!response.ok) {
-        throw new Error('Logout failed');
-      }
+      await http.post('/api/logout', null, {});
       // Force a complete page refresh to clear all cache
       window.location.href = '/';
     } catch (error) {

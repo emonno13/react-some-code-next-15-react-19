@@ -1,7 +1,7 @@
 'use client';
 
-import { useFormContext, Controller, FieldErrors } from 'react-hook-form';
 import { Input } from '@/components/ui/input';
+import { Controller, FieldErrors, useFormContext } from 'react-hook-form';
 
 interface CustomInputProps {
   name: string;

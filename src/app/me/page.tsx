@@ -1,9 +1,9 @@
-import { getServerSideMe } from '@/servers/server-api';
-import { redirect } from 'next/navigation';
 import { ProfileContent } from '@/app/me/profile-content';
+import { getServerSideMe } from '@/services/server-api';
 
 export default async function MePage() {
   const data = await getServerSideMe();
+  console.log('🚀 ~ MePage ~ data:', data);
 
   return (
     <div className="container mx-auto p-4">

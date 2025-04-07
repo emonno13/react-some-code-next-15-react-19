@@ -1,11 +1,10 @@
 'use client';
 
-import { useForm, FormProvider, Resolver } from 'react-hook-form';
+import { CustomInput } from '@/components/atoms/CustomInput';
+import { useLogin } from '@/services/mutation';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { FormProvider, Resolver, useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { CustomInput } from '@/components/CustomInput';
-import { useLogin } from '@/hooks/useLogin';
-import { useRouter } from 'next/navigation';
 
 const loginSchema = z.object({
   email: z.string().email({ message: 'Please enter a valid email address' }),
@@ -15,7 +14,6 @@ const loginSchema = z.object({
 });
 
 export default function LoginPage() {
-  const router = useRouter();
   const { mutate: login, isPending: isLoading, error } = useLogin();
 
   const methods = useForm({
