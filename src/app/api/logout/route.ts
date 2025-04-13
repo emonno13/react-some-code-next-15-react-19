@@ -1,25 +1,32 @@
-import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 
 export async function POST() {
   try {
-    const cookieStore = await cookies();
+    // Instead of using cookies().delete(), we'll use Set-Cookie header with Max-Age=0
+    // to ensure better compatibility across environments
 
-    // Delete the access token cookie
-    cookieStore.delete('accessToken');
-
-    return NextResponse.json(
+    // Create response object
+    const response = NextResponse.json(
       { message: 'Logged out successfully' },
-      {
-        status: 200,
-        headers: {
-          'Cache-Control':
-            'no-store, no-cache, must-revalidate, proxy-revalidate',
-          Pragma: 'no-cache',
-          Expires: '0',
-        },
-      }
+      { status: 200 }
     );
+
+    // Set cookie with Max-Age=0 to expire it immediately
+    response.headers.set(
+      'Set-Cookie',
+      'accessToken=; Max-Age=0; Path=/; HttpOnly; SameSite=Lax' +
+        (process.env.NODE_ENV === 'production' ? '; Secure' : '')
+    );
+
+    // Add cache control headers
+    response.headers.set(
+      'Cache-Control',
+      'no-store, no-cache, must-revalidate, proxy-revalidate'
+    );
+    response.headers.set('Pragma', 'no-cache');
+    response.headers.set('Expires', '0');
+
+    return response;
   } catch (error) {
     console.error('Logout error:', error);
     return NextResponse.json(
